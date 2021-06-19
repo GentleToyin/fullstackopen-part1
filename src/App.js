@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const Header = (props)=>{
+  return(
+    <div>
+      <h1>{props.course}</h1>
     </div>
-  );
+    )
+  }
+
+  const Content = (props)=>{
+    return(
+      <div>
+        <p>{props.part1}</p>
+        <p>{props.part2}</p>
+        <p>{props.part3}</p>
+      </div>
+      )
+  }
+
+  const Total = (props)=>{
+    return(
+      <div>
+         <p>Number of excercises {props.exc1 + props.exc2 + props.exc3}</p>
+      </div>
+      )
+  }
+
+const App =()=>{
+  const course = 'Half Stack application development'
+  const part1='Fundamentals of React'
+  const excercises1 = 10
+  const part2= 'Using props to pass data'
+  const excercises2 = 7
+  const part3 = 'State of a component'
+  const excercises3 = 14
+
+  return (
+    <div>
+      <Header course = {course}/>
+      <Content part1 = {part1} part2 = {part2} part3 = {part3} />
+      <Total exc1 = {excercises1} exc2={excercises2} exc3= {excercises3}/>
+     
+    </div>
+    )
 }
 
-export default App;
+export default App
